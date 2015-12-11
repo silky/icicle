@@ -30,7 +30,7 @@ static ierror_msg_t NOINLINE ierror_msg_alloc (const char *msg, const char *valu
         char value_text[4*1024] = {0};
         memcpy (value_text, value_ptr, MIN (value_size, sizeof (value_text) - 1));
 
-        snprintf (error_text, error_size, "%s: %s", msg, value_text);
+        snprintf (error_text, error_size, "%s <%s>", msg, value_text);
     } else {
         snprintf (error_text, error_size, "%s", msg);
     }

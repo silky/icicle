@@ -116,4 +116,4 @@ return []
 tests :: IO Bool
 tests = releaseLibraryAfterTests $ do
   -- $quickCheckAll
-  $forAllProperties $ quickCheckWithResult (stdArgs { maxSuccess = 1000 })
+  $forAllProperties $ quickCheckWithResult (stdArgs { maxSuccess = 10000 })

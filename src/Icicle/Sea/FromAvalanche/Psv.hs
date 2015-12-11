@@ -6,6 +6,7 @@ module Icicle.Sea.FromAvalanche.Psv (
     PsvConfig(..)
   , PsvMode(..)
   , seaOfPsvDriver
+  , seaOfStringEq
   ) where
 
 import qualified Data.ByteString as B
@@ -1021,6 +1022,8 @@ sizeOfString = B.length . T.encodeUtf8
 
 seaOfStringEq :: Text -> Doc -> Maybe Doc -> Doc
 seaOfStringEq str ptr msize
+ | Just size <- msize
+ , nbytes == 0        = size <+> "== 0"
  | Just size <- msize = align (vsep [szdoc size, cmpdoc])
  | otherwise          = align cmpdoc
  where
