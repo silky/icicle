@@ -168,7 +168,7 @@ seaOfPrimArray p
      PrimArrayPutMutable t
       -> PDAlloc (prefixOfValType (ArrayT t) <> "put_mutable") Nothing
      PrimArrayPutImmutable t
-      -> PDAlloc (prefixOfValType (ArrayT t) <> "put_immutable") Nothing
+      -> PDAlloc (prefixOfValType (ArrayT t) <> "put_mutable") Nothing
      PrimArraySwap t
       -> PDFun   (prefixOfValType (ArrayT t) <> "swap") Nothing
      PrimArrayDel t
